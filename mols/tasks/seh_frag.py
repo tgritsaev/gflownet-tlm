@@ -37,7 +37,7 @@ parser.add_argument("--lrd", type=int, default=20_000)
 parser.add_argument("--blr", type=float)
 parser.add_argument("--blrd", type=int, default=5_000)
 parser.add_argument("--batch_size", type=int, default=256)
-parser.add_argument("--train_policy", type=str, choices=["tb", "db", "subtb", "dqn"], default="tb")
+parser.add_argument("--algo", type=str, choices=["tb", "db", "subtb", "dqn"], default="tb")
 parser.add_argument("--backward_approach", type=str, choices=["uniform", "naive", "tlm", "maxent"], default="uniform")
 
 parser.add_argument("--no_sampling_model", action="store_true")
@@ -167,18 +167,18 @@ class SEHFragTrainer(StandardOnlineTrainer):
         cfg.cond.temperature.dist_params = [args.temp]
         cfg.log_dir += f"temp={args.temp}-"
 
-        if args.train_policy in ["tb", "db", "subtb"]:
+        if args.algo in ["tb", "db", "subtb"]:
             cfg.algo.method = "TB"
-            self.train_policy = args.train_policy
-            cfg.log_dir += self.train_policy + "-"
-            if self.train_policy == "tb":
+            self.algo = args.algo
+            cfg.log_dir += self.algo + "-"
+            if self.algo == "tb":
                 cfg.algo.tb.variant = TBVariant.TB
-            elif self.train_policy == "db":
+            elif self.algo == "db":
                 cfg.algo.tb.variant = TBVariant.DB
             else:
                 cfg.algo.tb.variant = TBVariant.SubTB1
             algo_method = cfg.algo.tb
-        elif args.train_policy == "dqn":
+        elif args.algo == "dqn":
             cfg.algo.method = "DQN"
             cfg.algo.dqn.is_dueling = not args.not_dueling
             cfg.algo.dqn.munchausen_alpha = args.m_alpha

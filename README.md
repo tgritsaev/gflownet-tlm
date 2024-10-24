@@ -41,9 +41,8 @@ Path to configurations (utilizes `ml-collections` library):
 - Algorithm: `hypergrid/experiments/config/algo.py`
 - Environment: `hypergrid/experiments/config/hypergrid.py`
 
-List of available algorithms:
-- Algorithms: `db`, `tb`, `subtb`, `soft_dqn`, and `munchausen_dqn`;
-- Backward approaches: `uniform`, `naive`, `maxent`, and `tlm`.
+- List of available algorithms: `db`, `tb`, `subtb`, `soft_dqn`, and `munchausen_dqn`;
+- List of available backward approaches: `uniform`, `naive`, `maxent`, and `tlm`.
 
 An example how to run the experiment from the `hypergrid/` directory with `standard` rewards, seed `3` on the algorithm `munchausen_dqn`:
 ```bash
@@ -60,15 +59,14 @@ python run_hypergrid_exp.py --general experiments/config/general.py:3 --env expe
 
 The experiments with molecular environments leverage the existing codebase for molecule generation using GFlowNets (available at https://github.com/recursionpharma/gflownet), which is distributed under the MIT license.
 
-List of available algorithms:
-- Algorithms: `db`, `tb`, `subtb`, and `dqn`;
-- Backward approaches: `uniform`, `naive`, `maxent`, and `tlm`.
+- List of available algorithms: `db`, `tb`, `subtb`, and `dqn`;
+- List of available backward approaches: `uniform`, `naive`, `maxent`, and `tlm`.
 
 To reproduce the QM9 experiment with `Munchausen DQN`, learning rate `5e-4`, and backward approach `TLM`:
 ```bash
-python mols.tasks.qm9 --seed 1 --train_policy dqn --lr 5e-4 --backward_approach tlm
+python mols.tasks.qm9 --seed 1 --algo dqn --lr 5e-4 --backward_approach tlm
 ```
 To run the sEH experiment with the same hyperparameters:
 ```bash
-python mols.tasks.seh --seed 1 --train_policy dqn --lr 5e-4 --backward_approach tlm
+python mols.tasks.seh --seed 1 --algo dqn --lr 5e-4 --backward_approach tlm
 ```

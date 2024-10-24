@@ -1,0 +1,9 @@
+torch==2.1.2 --index-url https://download.pytorch.org/whl/cu121
+argparse
+scipy
+tqdm
+torchrl==0.1.1
+tensordict==0.1.2
+torchgfn==1.0.0
+ml-collections==0.1.1
+numpy==1.26.4

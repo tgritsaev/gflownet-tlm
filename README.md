@@ -58,7 +58,7 @@ python run_hypergrid_exp.py --general experiments/config/general.py:3 --env expe
 
 ## Molecules
 
-The experiments with molecular environments leverage the existing codebase for molecule generation using GFlowNets (available at https://github.com/recursionpharma/gflownet), which is distributed under the MIT license.
+The experiments with molecular environments leverage the existing codebase for molecule generation using GFlowNets (https://github.com/recursionpharma/gflownet), which is distributed under the MIT license.
 
 - List of available algorithms: `db`, `tb`, `subtb`, and `dqn`;
 - List of available backward approaches: `uniform`, `naive`, `maxent`, and `tlm`.

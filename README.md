@@ -41,6 +41,7 @@ Path to configurations (utilizes `ml-collections` library):
 - Algorithm: `hypergrid/experiments/config/algo.py`
 - Environment: `hypergrid/experiments/config/hypergrid.py`
 
+Available options:
 - List of available algorithms: `db`, `tb`, `subtb`, `soft_dqn`, and `munchausen_dqn`;
 - List of available backward approaches: `uniform`, `naive`, `maxent`, and `tlm`.
 
